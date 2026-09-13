@@ -25,13 +25,13 @@ export default function Hero() {
       <div className="absolute inset-x-0 bottom-[8%] px-6 sm:bottom-[6%] md:px-14">
         <div className="relative select-none">
           <h1
-            className="giant font-semibold text-white"
+            className="giant font-semibold text-white opacity-60"
             style={{ fontSize: 'clamp(2.75rem, 15vw, 15rem)' }}
           >
             Digital
           </h1>
           <p
-            className="giant -mt-1 mr-1 text-right font-semibold text-white/90 sm:-mt-2 sm:mr-4 md:-mt-6 md:mr-10"
+            className="giant -mt-1 mr-1 text-right font-semibold text-white/90 mix-blend-overlay sm:-mt-2 sm:mr-4 md:-mt-6 md:mr-10"
             style={{ fontSize: 'clamp(1.35rem, 7vw, 7rem)', letterSpacing: '-0.03em' }}
           >
             Marketing Agency
