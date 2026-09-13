@@ -6,7 +6,7 @@ import Spinner from '../ui/Spinner';
 import Button from '../ui/Button';
 
 export default function WorksPreview() {
-  const { data: works, loading } = useFetch(() => worksApi.listPublic(), []);
+  const { data: works, loading } = useFetch(() => worksApi.listHomepage(), []);
   const preview = (works || []).slice(0, 4);
 
   return (

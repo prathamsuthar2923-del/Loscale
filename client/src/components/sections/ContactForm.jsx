@@ -38,7 +38,7 @@ export default function ContactForm() {
       <div className="mb-12 text-center">
         <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">Get in touch</p>
         <h2 className="giant font-semibold text-black" style={{ fontSize: 'clamp(2.2rem, 6vw, 4rem)' }}>
-          Let&apos;s Talk
+          Let&apos;s Scale
         </h2>
         <p className="mt-4 text-lg text-black/60">
           Tell us a bit about your project and we&apos;ll get back to you shortly.
@@ -117,7 +117,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-8 py-4 text-sm font-semibold uppercase tracking-wide text-white transition-opacity hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {status === 'submitting' ? 'Sending...' : 'Send Message'}
         </button>

@@ -92,12 +92,12 @@ export default function AdminSuccessStoriesPage() {
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold text-black">Success Stories</h1>
-          <p className="mt-1 text-black/50">Rich case-study cards with stats, shown on the homepage.</p>
+          <p className="mt-1 max-w-xl text-black/50">Rich case-study cards with stats, shown on the homepage.</p>
         </div>
         <button
           type="button"
           onClick={openCreate}
-          className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:opacity-85"
+          className="rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white hover:opacity-85"
         >
           + Add Success Story
         </button>

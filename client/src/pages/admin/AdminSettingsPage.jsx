@@ -5,7 +5,7 @@ import Spinner from '../../components/ui/Spinner';
 
 const sectionLabels = {
   hero: 'Hero',
-  whoWeAre: 'Who We Are',
+  whoWeAre: 'Who We Are (moved to the /about page — no longer on the homepage)',
   stats: 'Stats',
   works: 'Works Preview',
   goalsRow: 'Goals Row',
@@ -63,7 +63,7 @@ export default function AdminSettingsPage() {
   return (
     <div className="mx-auto max-w-2xl">
       <h1 className="text-2xl font-semibold text-black">Site Settings</h1>
-      <p className="mt-1 text-black/50">Site-wide toggles for every homepage section, social links, and the contact notification address.</p>
+      <p className="mt-1 max-w-xl text-black/50">Site-wide toggles for every homepage section, social links, and the contact notification address.</p>
 
       <form onSubmit={handleSave} className="mt-8 space-y-10">
         <section>

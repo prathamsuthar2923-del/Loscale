@@ -6,7 +6,7 @@ const base =
 const variants = {
   dark: 'bg-black text-white px-6 py-4',
   light: 'bg-white text-black px-6 py-4',
-  accent: 'bg-accent text-white px-6 py-4 rounded-full',
+  accent: 'bg-black text-white px-6 py-4 rounded-full',
   outline: 'border border-black/20 text-black px-6 py-4',
 };
 

@@ -72,12 +72,12 @@ export default function AdminTeamPage() {
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold text-black">Team</h1>
-          <p className="mt-1 text-black/50">Name, title, photo, and whether each member shows on the homepage.</p>
+          <p className="mt-1 max-w-xl text-black/50">Name, title, photo, and whether each member shows on the homepage.</p>
         </div>
         <button
           type="button"
           onClick={openCreate}
-          className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:opacity-85"
+          className="rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white hover:opacity-85"
         >
           + Add Team Member
         </button>

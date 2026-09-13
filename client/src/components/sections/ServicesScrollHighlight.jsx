@@ -14,7 +14,7 @@ import Spinner from '../ui/Spinner';
  * in the admin panel (instead of a hardcoded 4).
  */
 export default function ServicesScrollHighlight() {
-  const { data: services, loading } = useFetch(() => servicesApi.listPublic(), []);
+  const { data: services, loading } = useFetch(() => servicesApi.listHomepage(), []);
   const driverRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -58,8 +58,8 @@ export default function ServicesScrollHighlight() {
   return (
     <section id="services" className="relative bg-black text-white">
       <div ref={driverRef} style={{ height: `${count * 100}vh` }} className="relative">
-        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-          <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-6 md:px-10 lg:grid-cols-2 lg:gap-24">
+        <div className="sticky top-0 flex h-screen items-center overflow-hidden pb-16 pt-6 md:pb-0 md:pt-0">
+          <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 px-6 md:px-10 md:gap-14 lg:grid-cols-2 lg:gap-24">
             <ul className="space-y-1 leading-[0.95]">
               {services.map((service, i) => (
                 <li key={service._id}>
@@ -71,7 +71,7 @@ export default function ServicesScrollHighlight() {
                       transform: i === activeIndex ? 'translateX(6px)' : 'translateX(0)',
                     }}
                   >
-                    {service.title}
+                    {service.homepageTitle || service.title}
                   </p>
                 </li>
               ))}
@@ -118,7 +118,7 @@ export default function ServicesScrollHighlight() {
 
           <Link
             to="/services"
-            className="absolute right-6 top-8 text-xs font-semibold uppercase tracking-wide text-white/70 hover:text-white md:right-10"
+            className="absolute right-6 top-24 hidden text-xs font-semibold uppercase tracking-wide text-white/70 hover:text-white lg:right-10 lg:block"
           >
             View all services →
           </Link>

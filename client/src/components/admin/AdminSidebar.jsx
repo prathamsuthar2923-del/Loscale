@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import logo from '../../assets/loscale-logo.png';
 
 const links = [
   { to: '/admin', label: 'Dashboard', end: true },
   { to: '/admin/services', label: 'Services' },
   { to: '/admin/works', label: 'Works' },
+  { to: '/admin/pricing', label: 'Pricing' },
   { to: '/admin/team', label: 'Team' },
   { to: '/admin/testimonials', label: 'Testimonials' },
   { to: '/admin/success-stories', label: 'Success Stories' },
@@ -16,9 +18,12 @@ export default function AdminSidebar() {
   const { username, logout } = useAuth();
 
   return (
-    <aside className="flex h-full w-64 flex-shrink-0 flex-col justify-between border-r border-black/10 bg-white p-6">
+    <aside className="flex h-full w-64 flex-shrink-0 flex-col justify-between overflow-y-auto border-r border-black/10 bg-white p-6">
       <div>
-        <p className="mb-8 text-lg font-semibold text-black">LO SCALE Admin</p>
+        <div className="mb-8">
+          <img src={logo} alt="Loscale" className="h-7 w-auto" style={{ filter: 'invert(1)' }} />
+          <p className="mt-1.5 text-xs font-medium uppercase tracking-wide text-black/40">Admin Panel</p>
+        </div>
         <nav className="space-y-1">
           {links.map((link) => (
             <NavLink

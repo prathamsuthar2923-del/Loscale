@@ -16,6 +16,7 @@ const Work = require('../models/Work');
 const TeamMember = require('../models/TeamMember');
 const Testimonial = require('../models/Testimonial');
 const SuccessStory = require('../models/SuccessStory');
+const PricingPlan = require('../models/PricingPlan');
 const SiteSettings = require('../models/SiteSettings');
 
 const services = [
@@ -115,6 +116,57 @@ const successStories = [
   },
 ];
 
+const pricingPlans = [
+  {
+    name: 'Basic',
+    price: '$120',
+    billingNote: 'billed monthly',
+    note: 'For small businesses or startups building their first digital presence.',
+    features: [
+      'Competitor analysis',
+      'Design of homepage + up to 4 inner pages',
+      'Creation of custom page prototypes',
+      'Basic analytics setup (e.g., Google Analytics)',
+      'Setup of a basic contact form',
+      'Bug fixing and testing support',
+    ],
+    highlighted: false,
+    order: 1,
+  },
+  {
+    name: 'Pro',
+    price: '$1,999',
+    billingNote: 'billed monthly',
+    note: 'For growing businesses needing more features and flexibility.',
+    features: [
+      'Competitor analysis',
+      'Design of homepage + up to 4 inner pages',
+      'Creation of custom page prototypes',
+      'Basic analytics setup (e.g., Google Analytics)',
+      'Setup of a basic contact form',
+      'Bug fixing and testing support',
+    ],
+    highlighted: true,
+    order: 2,
+  },
+  {
+    name: 'Max',
+    price: '$3,999',
+    billingNote: 'billed monthly',
+    note: 'For established brands looking for a fully tailored experience.',
+    features: [
+      'Competitor analysis',
+      'Design of homepage + up to 4 inner pages',
+      'Creation of custom page prototypes',
+      'Basic analytics setup (e.g., Google Analytics)',
+      'Setup of a basic contact form',
+      'Bug fixing and testing support',
+    ],
+    highlighted: false,
+    order: 3,
+  },
+];
+
 async function seedCollection(Model, docs, matchField) {
   let created = 0;
   for (const doc of docs) {
@@ -152,6 +204,7 @@ async function run() {
   console.log(`[seed] Team members created: ${await seedCollection(TeamMember, team, 'name')}`);
   console.log(`[seed] Testimonials created: ${await seedCollection(Testimonial, testimonials, 'authorName')}`);
   console.log(`[seed] Success stories created: ${await seedCollection(SuccessStory, successStories, 'authorName')}`);
+  console.log(`[seed] Pricing plans created: ${await seedCollection(PricingPlan, pricingPlans, 'name')}`);
 
   console.log('\n[seed] Done. You can now log into /admin with the ADMIN_USERNAME / ADMIN_PASSWORD from your .env file.');
   process.exit(0);

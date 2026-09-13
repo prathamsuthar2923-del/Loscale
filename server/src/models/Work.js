@@ -12,7 +12,8 @@ const workSchema = new mongoose.Schema(
     summary: { type: String, default: '' },
     description: { type: String, default: '' },
     order: { type: Number, default: 0 },
-    visible: { type: Boolean, default: true },
+    visible: { type: Boolean, default: true }, // Active / Inactive on the live site
+    showOnHomepage: { type: Boolean, default: true }, // also featured in the homepage works preview
   },
   { timestamps: true }
 );

@@ -1,7 +1,7 @@
 import useFetch from '../hooks/useFetch';
 import settingsApi from '../api/settings.api';
 import Hero from '../components/sections/Hero';
-import WhoWeAre from '../components/sections/WhoWeAre';
+// "Who We Are" now lives on its own /about page instead of the homepage — see AboutPage.jsx.
 import Stats from '../components/sections/Stats';
 import WorksPreview from '../components/sections/WorksPreview';
 import GoalsRow from '../components/sections/GoalsRow';
@@ -30,8 +30,11 @@ export default function HomePage() {
   return (
     <>
       {show('hero') && <Hero />}
-      {show('whoWeAre') && <WhoWeAre />}
-      {show('stats') && <Stats />}
+      {show('stats') && (
+        <div className="pt-24 md:pt-32">
+          <Stats />
+        </div>
+      )}
       {show('works') && <WorksPreview />}
       {show('goalsRow') && <GoalsRow />}
       {show('services') && <ServicesScrollHighlight />}

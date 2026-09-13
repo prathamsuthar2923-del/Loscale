@@ -18,6 +18,9 @@ function createCrudRoutes(controller) {
   adminRouter.post('/', controller.create);
   adminRouter.put('/:id', controller.update);
   adminRouter.patch('/:id/toggle', controller.toggleVisible);
+  if (controller.toggleHomepage) {
+    adminRouter.patch('/:id/toggle-homepage', controller.toggleHomepage);
+  }
   adminRouter.delete('/:id', controller.remove);
 
   return { public: publicRouter, admin: adminRouter };

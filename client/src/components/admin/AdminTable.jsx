@@ -5,7 +5,7 @@ import Toggle from '../ui/Toggle';
  * testimonials, success stories, works). `columns` is an array of
  * { key, label, render? } — render(row) overrides the default row[key] text.
  */
-export default function AdminTable({ columns, rows, onToggleVisible, onEdit, onDelete, emptyLabel }) {
+export default function AdminTable({ columns, rows, onToggleVisible, onToggleHomepage, onEdit, onDelete, emptyLabel }) {
   if (!rows || rows.length === 0) {
     return <p className="rounded-xl border border-dashed border-black/15 p-8 text-center text-black/40">{emptyLabel || 'Nothing here yet.'}</p>;
   }
@@ -20,7 +20,8 @@ export default function AdminTable({ columns, rows, onToggleVisible, onEdit, onD
                 {col.label}
               </th>
             ))}
-            {onToggleVisible && <th className="px-4 py-3 font-medium">Visible</th>}
+            {onToggleVisible && <th className="px-4 py-3 font-medium">Active</th>}
+            {onToggleHomepage && <th className="px-4 py-3 font-medium">Homepage</th>}
             <th className="px-4 py-3 font-medium text-right">Actions</th>
           </tr>
         </thead>
@@ -34,7 +35,16 @@ export default function AdminTable({ columns, rows, onToggleVisible, onEdit, onD
               ))}
               {onToggleVisible && (
                 <td className="px-4 py-3">
-                  <Toggle checked={row.visible} onChange={() => onToggleVisible(row)} label="Toggle visibility" />
+                  <Toggle checked={row.visible} onChange={() => onToggleVisible(row)} label="Toggle active status" />
+                </td>
+              )}
+              {onToggleHomepage && (
+                <td className="px-4 py-3">
+                  <Toggle
+                    checked={row.showOnHomepage}
+                    onChange={() => onToggleHomepage(row)}
+                    label="Toggle show on homepage"
+                  />
                 </td>
               )}
               <td className="px-4 py-3 text-right">

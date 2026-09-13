@@ -35,7 +35,7 @@ export default function AdminDashboardPage() {
   return (
     <div>
       <h1 className="mb-2 text-2xl font-semibold text-black">Dashboard</h1>
-      <p className="mb-8 text-black/50">
+      <p className="mb-8 max-w-xl text-black/50">
         Manage everything shown on the live site from here, including the section visibility toggles under{' '}
         <Link to="/admin/settings" className="font-medium text-accent">
           Site Settings

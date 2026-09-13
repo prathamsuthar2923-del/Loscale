@@ -19,17 +19,25 @@ export default function AdminWorksPage() {
     refetch();
   };
 
+  const handleToggleHomepage = async (work) => {
+    await worksApi.toggleHomepage(work._id);
+    refetch();
+  };
+
   return (
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold text-black">Works</h1>
-          <p className="mt-1 text-black/50">Case studies shown on the homepage preview, the Works page, and each detail page.</p>
+          <p className="mt-1 max-w-xl text-black/50">
+            &quot;Active&quot; controls whether a case study shows on the website at all (the Works page). &quot;Homepage&quot;
+            additionally features it in the homepage works preview.
+          </p>
         </div>
         <button
           type="button"
           onClick={() => navigate('/admin/works/new')}
-          className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:opacity-85"
+          className="rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white hover:opacity-85"
         >
           + Add Work
         </button>
@@ -47,6 +55,7 @@ export default function AdminWorksPage() {
           ]}
           rows={works}
           onToggleVisible={handleToggle}
+          onToggleHomepage={handleToggleHomepage}
           onEdit={(work) => navigate(`/admin/works/${work._id}`)}
           onDelete={handleDelete}
           emptyLabel="No case studies yet — add your first one."

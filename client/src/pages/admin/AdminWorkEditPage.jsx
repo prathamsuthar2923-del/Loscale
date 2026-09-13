@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import worksApi from '../../api/works.api';
 import ImageUploader from '../../components/admin/ImageUploader';
 import Spinner from '../../components/ui/Spinner';
+import Toggle from '../../components/ui/Toggle';
 
 const emptyForm = {
   title: '',
@@ -15,6 +16,8 @@ const emptyForm = {
   summary: '',
   description: '',
   order: 0,
+  visible: true,
+  showOnHomepage: true,
 };
 
 export default function AdminWorkEditPage() {
@@ -43,6 +46,8 @@ export default function AdminWorkEditPage() {
           summary: work.summary || '',
           description: work.description || '',
           order: work.order ?? 0,
+          visible: work.visible ?? true,
+          showOnHomepage: work.showOnHomepage ?? true,
         }),
       )
       .catch(() => setError('Could not load this work item.'))
@@ -198,6 +203,31 @@ export default function AdminWorkEditPage() {
             onChange={(e) => setForm({ ...form, order: Number(e.target.value) })}
             className="w-full rounded-lg border border-black/15 px-3 py-2 outline-none focus:border-accent"
           />
+        </div>
+
+        <div className="flex flex-col gap-4 rounded-lg border border-black/10 p-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center justify-between gap-3 sm:justify-start">
+            <div>
+              <p className="text-sm font-medium text-black">Active</p>
+              <p className="text-xs text-black/50">Show this on the website (Active) or hide it entirely (Inactive).</p>
+            </div>
+            <Toggle
+              checked={form.visible}
+              onChange={(v) => setForm({ ...form, visible: v })}
+              label="Toggle active status"
+            />
+          </div>
+          <div className="flex items-center justify-between gap-3 sm:justify-start">
+            <div>
+              <p className="text-sm font-medium text-black">Homepage</p>
+              <p className="text-xs text-black/50">Also feature this in the homepage works preview.</p>
+            </div>
+            <Toggle
+              checked={form.showOnHomepage}
+              onChange={(v) => setForm({ ...form, showOnHomepage: v })}
+              label="Toggle show on homepage"
+            />
+          </div>
         </div>
 
         {error && <p className="text-sm text-red-600">{error}</p>}

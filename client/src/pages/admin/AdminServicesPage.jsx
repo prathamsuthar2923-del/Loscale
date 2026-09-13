@@ -6,7 +6,7 @@ import ImageUploader from '../../components/admin/ImageUploader';
 import Modal from '../../components/ui/Modal';
 import Spinner from '../../components/ui/Spinner';
 
-const emptyForm = { title: '', tag: '', description: '', image: '', order: 0 };
+const emptyForm = { title: '', homepageTitle: '', tag: '', description: '', image: '', order: 0 };
 
 export default function AdminServicesPage() {
   const { data: services, loading, refetch } = useFetch(() => servicesApi.listAdmin(), []);
@@ -27,6 +27,7 @@ export default function AdminServicesPage() {
     setEditing(service);
     setForm({
       title: service.title || '',
+      homepageTitle: service.homepageTitle || '',
       tag: service.tag || '',
       description: service.description || '',
       image: service.image || '',
@@ -66,17 +67,25 @@ export default function AdminServicesPage() {
     refetch();
   };
 
+  const handleToggleHomepage = async (service) => {
+    await servicesApi.toggleHomepage(service._id);
+    refetch();
+  };
+
   return (
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold text-black">Services</h1>
-          <p className="mt-1 text-black/50">Shown on the homepage scroll section and the Services page.</p>
+          <p className="mt-1 max-w-xl text-black/50">
+            &quot;Active&quot; controls whether a service shows on the website at all (the Services page). &quot;Homepage&quot;
+            additionally features it in the homepage scroll section.
+          </p>
         </div>
         <button
           type="button"
           onClick={openCreate}
-          className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:opacity-85"
+          className="rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white hover:opacity-85"
         >
           + Add Service
         </button>
@@ -88,11 +97,13 @@ export default function AdminServicesPage() {
         <AdminTable
           columns={[
             { key: 'title', label: 'Title' },
+            { key: 'homepageTitle', label: 'Homepage Title', render: (row) => row.homepageTitle || <span className="text-black/30">(same)</span> },
             { key: 'tag', label: 'Tag' },
             { key: 'order', label: 'Order' },
           ]}
           rows={services}
           onToggleVisible={handleToggle}
+          onToggleHomepage={handleToggleHomepage}
           onEdit={openEdit}
           onDelete={handleDelete}
           emptyLabel="No services yet — add your first one."
@@ -110,6 +121,21 @@ export default function AdminServicesPage() {
               className="w-full rounded-lg border border-black/15 px-3 py-2 outline-none focus:border-accent"
               placeholder="Performance Marketing"
             />
+            <p className="mt-1 text-xs text-black/40">Full title — shown on the Services page.</p>
+          </div>
+          <div>
+            <label className="mb-1 block text-sm font-medium text-black">
+              Homepage Title <span className="font-normal text-black/40">(optional)</span>
+            </label>
+            <input
+              value={form.homepageTitle}
+              onChange={(e) => setForm({ ...form, homepageTitle: e.target.value })}
+              className="w-full rounded-lg border border-black/15 px-3 py-2 outline-none focus:border-accent"
+              placeholder="Performance Marketing"
+            />
+            <p className="mt-1 text-xs text-black/40">
+              Short version for the homepage scroll section. Leave blank to reuse the Title above.
+            </p>
           </div>
           <div>
             <label className="mb-1 block text-sm font-medium text-black">Tag / Subtitle</label>
