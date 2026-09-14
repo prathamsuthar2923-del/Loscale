@@ -8,12 +8,27 @@ const connectDB = require('./config/db');
 const apiRoutes = require('./routes');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
 
+
 async function start() {
   await connectDB();
 
   const app = express();
 
-  app.use(cors({ origin: clientUrl, credentials: true }));
+    const allowedOrigins = [
+  'https://loscaledigital.com',
+  'https://www.loscaledigital.com',
+  'http://localhost:5173',
+];
+
+  app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+}));
   app.use(express.json({ limit: '5mb' }));
   app.use(morgan('dev'));
 
