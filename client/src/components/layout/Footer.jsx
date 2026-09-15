@@ -75,6 +75,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/digital-marketing-agency-ahmedabad" className="hover:text-black">
+                  Digital Marketing — Ahmedabad
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="hover:text-black">
                   Get a Proposal
                 </Link>

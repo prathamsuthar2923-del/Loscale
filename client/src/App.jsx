@@ -6,6 +6,7 @@ import AboutPage from './pages/AboutPage';
 import WorksPage from './pages/WorksPage';
 import WorkDetailPage from './pages/WorkDetailPage';
 import ServicesPage from './pages/ServicesPage';
+import DigitalMarketingAgencyAhmedabadPage from './pages/DigitalMarketingAgencyAhmedabadPage';
 import ContactPage from './pages/ContactPage';
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
@@ -37,6 +38,10 @@ export default function App() {
           <Route path="/works" element={<WorksPage />} />
           <Route path="/works/:slug" element={<WorkDetailPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route
+            path="/digital-marketing-agency-ahmedabad"
+            element={<DigitalMarketingAgencyAhmedabadPage />}
+          />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
