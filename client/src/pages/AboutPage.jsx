@@ -30,7 +30,7 @@ export default function AboutPage() {
     <>
       <Seo
         title="About"
-        description="LO SCALE is a full-service digital growth agency dedicated to turning online visibility into measurable revenue."
+        description="LO SCALE is a full-service digital marketing agency dedicated to turning online visibility into measurable revenue."
         path="/about"
       />
       <section className="mx-auto max-w-5xl px-6 pb-10 pt-32 md:px-10 md:pt-44">
@@ -41,7 +41,7 @@ export default function AboutPage() {
         <div className="mt-8 space-y-5 text-lg text-black/70 md:text-xl">
           <p>
             In today&apos;s hyper-competitive digital ecosystem, presence alone isn&apos;t enough — you need
-            performance. LO SCALE is a full-service digital growth agency dedicated to turning online
+            performance. LO SCALE is a full-service digital marketing agency dedicated to turning online
             visibility into measurable revenue. We don&apos;t just run campaigns; we build scalable digital
             infrastructure tailored to your business objectives.
           </p>

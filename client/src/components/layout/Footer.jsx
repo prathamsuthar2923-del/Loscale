@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="space-y-8">
           <img src={logo} alt="Loscale" className="h-9 w-auto" style={{ filter: 'invert(1)' }} />
           <p className="max-w-sm text-black/60">
-            LO SCALE is a full-service digital growth agency dedicated to turning online visibility into
+            LO SCALE is a full-service digital marketing agency dedicated to turning online visibility into
             measurable revenue.
           </p>
 

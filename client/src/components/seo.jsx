@@ -5,7 +5,7 @@ const SITE_URL = 'https://loscaledigital.com';
 const DEFAULT_IMAGE = `${SITE_URL}/og-default.jpg`;
 
 export default function Seo({ title, description, path = '/', image, type = 'website', noindex = false }) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Digital Growth Agency`;
+  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Digital Marketing Agency`;
   const url = `${SITE_URL}${path}`;
   const ogImage = image || DEFAULT_IMAGE;
 

@@ -31,7 +31,7 @@ export default function HomePage() {
   return (
     <>
       <Seo
-        description="LO SCALE is a full-service digital growth agency turning online visibility into measurable revenue — performance marketing, SEO, social, and web design."
+        description="LO SCALE is a full-service digital marketing agency turning online visibility into measurable revenue — performance marketing, SEO, social, and web design."
         path="/"
       />
       {show('hero') && <Hero />}
