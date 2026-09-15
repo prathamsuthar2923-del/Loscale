@@ -36,7 +36,7 @@ export default function HomePage() {
       />
       {show('hero') && <Hero />}
       {show('stats') && (
-        <div className="pt-24 md:pt-32">
+        <div className="pt-28 md:pt-32">
           <Stats />
         </div>
       )}

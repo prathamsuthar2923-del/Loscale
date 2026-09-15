@@ -56,9 +56,9 @@ export default function ServicesScrollHighlight() {
   if (!count) return null;
 
   return (
-    <section id="services" className="relative bg-black text-white">
+    <section id="services" className="relative bg-black py-10 text-white md:py-0">
       <div ref={driverRef} style={{ height: `${count * 100}vh` }} className="relative">
-        <div className="sticky top-0 flex h-screen items-center overflow-hidden pb-16 pt-6 md:pb-0 md:pt-0">
+        <div className="sticky top-0 flex h-screen items-center overflow-hidden pb-16 pt-24 md:pb-0 md:pt-0">
           <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 px-6 md:px-10 md:gap-14 lg:grid-cols-2 lg:gap-24">
             <ul className="space-y-1 leading-[0.95]">
               {services.map((service, i) => (
@@ -78,7 +78,12 @@ export default function ServicesScrollHighlight() {
             </ul>
 
             <div className="mx-auto w-full max-w-[380px] lg:mx-0">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-white/5">
+              {/* Sized down on mobile so the mockup doesn't dominate the
+                  screen and push the description awkwardly far down — the
+                  outer column above stays full width so the text below
+                  doesn't get squeezed into extra line-wraps. Unchanged
+                  (full-size) from md up. */}
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[220px] overflow-hidden rounded-2xl bg-white/5 sm:max-w-[280px] md:max-w-full">
                 {services.map((service, i) => (
                   <img
                     key={service._id}
@@ -90,11 +95,11 @@ export default function ServicesScrollHighlight() {
                 ))}
               </div>
 
-              <div className="relative mt-8 h-20 sm:h-14">
+              <div className="relative mt-10 h-28 sm:mt-8 sm:h-14">
                 {services.map((service, i) => (
                   <p
                     key={service._id}
-                    className="absolute inset-0 text-lg text-white transition-opacity duration-500 ease-out md:text-xl"
+                    className="absolute inset-0 text-lg leading-relaxed text-white transition-opacity duration-500 ease-out md:text-xl"
                     style={{ opacity: i === activeIndex ? 1 : 0 }}
                   >
                     {service.tag && <span className="text-[#9b9b9b]">{service.tag} — </span>}
