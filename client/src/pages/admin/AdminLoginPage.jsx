@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import Seo from '../../components/seo';
 
 export default function AdminLoginPage() {
   const { login, isAuthenticated, checking } = useAuth();
@@ -31,6 +32,7 @@ export default function AdminLoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#f7f7f8] px-6">
+      <Seo title="Admin Login" noindex />
       <form onSubmit={handleSubmit} className="w-full max-w-sm rounded-2xl bg-white p-8 shadow-sm">
         <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-accent">LO SCALE</p>
         <h1 className="mb-8 text-2xl font-semibold text-black">Admin Login</h1>

@@ -1,4 +1,5 @@
 import useFetch from '../hooks/useFetch';
+import Seo from '../components/seo';
 import settingsApi from '../api/settings.api';
 import Hero from '../components/sections/Hero';
 // "Who We Are" now lives on its own /about page instead of the homepage — see AboutPage.jsx.
@@ -29,6 +30,10 @@ export default function HomePage() {
 
   return (
     <>
+      <Seo
+        description="LO SCALE is a full-service digital growth agency turning online visibility into measurable revenue — performance marketing, SEO, social, and web design."
+        path="/"
+      />
       {show('hero') && <Hero />}
       {show('stats') && (
         <div className="pt-24 md:pt-32">

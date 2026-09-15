@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/seo';
 import SectionHeading from '../components/ui/SectionHeading';
 
 export default function TermsPage() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-28 md:px-10">
+      <Seo title="Terms of Service" description="Terms of Service governing your use of the LO SCALE website and digital marketing services." path="/terms" />
       <SectionHeading eyebrow="Legal" title="Terms of Service" description="Last updated: September 2026" />
 
       <div className="mt-12 space-y-10 text-black/70">

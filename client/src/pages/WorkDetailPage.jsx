@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import Seo from '../components/seo';
 import useFetch from '../hooks/useFetch';
 import worksApi from '../api/works.api';
 import resolveImage from '../utils/resolveImage';
@@ -15,6 +16,13 @@ export default function WorkDetailPage() {
 
   return (
     <article className="mx-auto max-w-5xl px-6 py-28 md:px-10">
+      <Seo
+        title={work.title}
+        description={work.summary || work.description?.slice(0, 155)}
+        path={`/works/${work.slug}`}
+        image={work.coverImage ? resolveImage(work.coverImage) : undefined}
+        type="article"
+      />
       <Link to="/works" className="text-sm font-medium text-black/50 hover:text-black">
         ← All work
       </Link>

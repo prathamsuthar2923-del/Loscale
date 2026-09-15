@@ -1,3 +1,4 @@
+import Seo from '../components/seo';
 import Stats from '../components/sections/Stats';
 import Button from '../components/ui/Button';
 
@@ -27,6 +28,11 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <Seo
+        title="About"
+        description="LO SCALE is a full-service digital growth agency dedicated to turning online visibility into measurable revenue."
+        path="/about"
+      />
       <section className="mx-auto max-w-5xl px-6 pb-10 pt-32 md:px-10 md:pt-44">
         <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">01 — Introduction</p>
         <h1 className="giant font-semibold text-black" style={{ fontSize: 'clamp(2.2rem, 6vw, 4.5rem)' }}>

@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/seo';
 import SectionHeading from '../components/ui/SectionHeading';
 
 export default function PrivacyPage() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-28 md:px-10">
+      <Seo title="Privacy Policy" description="Privacy Policy explaining what information LO SCALE collects and how it is used." path="/privacy" />
       <SectionHeading eyebrow="Legal" title="Privacy Policy" description="Last updated: September 2026" />
 
       <div className="mt-12 space-y-10 text-black/70">

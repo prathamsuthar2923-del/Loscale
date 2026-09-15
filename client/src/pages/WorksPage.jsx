@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/seo';
 import useFetch from '../hooks/useFetch';
 import worksApi from '../api/works.api';
 import resolveImage from '../utils/resolveImage';
@@ -10,6 +11,7 @@ export default function WorksPage() {
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-28 md:px-10">
+      <Seo title="Our Work" description="Case studies from brands LO SCALE has helped grow." path="/works" />
       <SectionHeading
         eyebrow="Our work"
         title="Selected Work"

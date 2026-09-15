@@ -1,4 +1,5 @@
 import useFetch from '../hooks/useFetch';
+import Seo from '../components/seo';
 import servicesApi from '../api/services.api';
 import resolveImage from '../utils/resolveImage';
 import placeholder from '../assets/service-placeholder.png';
@@ -11,6 +12,7 @@ export default function ServicesPage() {
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-28 md:px-10">
+      <Seo title="Services" description="Full-funnel digital growth services: performance marketing, SEO, social media, CRO, content, and marketing automation." path="/services" />
       <SectionHeading
         eyebrow="What we do"
         title="Our Core Services"
